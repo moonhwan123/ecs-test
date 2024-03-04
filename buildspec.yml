@@ -12,6 +12,7 @@ phases:
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=${COMMIT_HASH:=latest}
       - echo "########################################"
+      - echo COMMIT_HASH
       - echo IMAGE_TAG
       - docker build -t moon-nginx-ecr:$IMAGE_TAG .
       - docker tag moon-nginx-ecr:$IMAGE_TAG 767397997178.dkr.ecr.ap-northeast-1.amazonaws.com/moon-nginx-ecr:$IMAGE_TAG
