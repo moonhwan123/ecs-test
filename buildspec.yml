@@ -15,10 +15,10 @@ phases:
       - echo $COMMIT_HASH
       - echo $IMAGE_TAG
       - echo "########################################"
-      - docker build -t moon-nginx-container:$IMAGE_TAG .
-      - docker tag moon-nginx-container:$IMAGE_TAG 851725522729.dkr.ecr.ap-northeast-2.amazonaws.com/moon-nginx-container:$IMAGE_TAG
+      - docker build -t moon-nginx-test-ecr:$IMAGE_TAG .
+      - docker tag moon-nginx-test-ecr:$IMAGE_TAG 851725522729.dkr.ecr.ap-northeast-2.amazonaws.com/moon-nginx-test-ecr:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 851725522729.dkr.ecr.ap-northeast-2.amazonaws.com/moon-nginx-container:$IMAGE_TAG
+      - docker push 851725522729.dkr.ecr.ap-northeast-2.amazonaws.com/moon-nginx-test-ecr:$IMAGE_TAG
